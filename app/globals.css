@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens extracted from Figma node 127:4045 ("Works", 1728px frame).
+ * Fluid clamps scale proportionally below 1728px and hit the exact Figma
+ * value at >=1728px. Sources: .vscode/figma-inventory.txt
+ */
+@theme {
+  /* Type families (variables provided by next/font in app/layout.tsx) */
+  --font-display: var(--font-amaranth), "Amaranth", sans-serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
+
+  /* Colors — exact hex from Figma */
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-dim: #333333;
+  --color-muted: #4e4e4e;
+
+  /*
+   * Type scale — exact Figma sizes at 1728px:
+   * hero 160.376px / title 36.381px / label 23.791px, line-height 133.28%
+   */
+  --text-hero: clamp(56px, 9.281vw, 160.376px);
+  --text-hero--line-height: 1.33282;
+  --text-title: clamp(24px, 2.1054vw, 36.381px);
+  --text-title--line-height: 1.33282;
+  --text-label: clamp(16px, 1.3768vw, 23.791px);
+  --text-label--line-height: 1.33282;
+
+  /* Spacing — exact Figma values at 1728px */
+  --spacing-gutter: clamp(20px, 3.4722vw, 60px); /* page gutter */
+  --spacing-nav-gap: clamp(24px, 2.8357vw, 49px); /* nav autoLayout gap */
+  --spacing-grid-x: clamp(24px, 1.8519vw, 32px); /* work grid column gap */
+  --spacing-grid-y: clamp(32px, 3.8773vw, 67px); /* work grid row gap */
+  --spacing-card-gap: clamp(16px, 2.2vw, 38px); /* image -> meta gap */
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-body);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-paper);
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+	"inputs": [],
+	"servers": {
+		"figma-bridge": {
+    "command": "npx",
+    "args": ["-y", "@gethopp/figma-mcp-bridge"],
+  }
+	}
+}
