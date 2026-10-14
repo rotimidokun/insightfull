@@ -37,7 +37,7 @@ next-env.d.ts
 # figma bridge working artifacts (screenshots, node JSON dumps, render QA captures)
 .vscode/figma-*.json
 .vscode/figma-*.png
-.vscode/figma-inventory.txt
+.vscode/figma-*.txt
 .vscode/render-*.png
 .vscode/svg-test.png
 .vscode/*.mp4

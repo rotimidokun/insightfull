@@ -1,9 +1,12 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import type { NavLink } from "@/lib/nav";
+import { navLinks } from "@/lib/nav";
 
-export function MobileNav({ links }: { links: NavLink[] }) {
+export function MobileNav() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -59,19 +62,22 @@ export function MobileNav({ links }: { links: NavLink[] }) {
           aria-label="Main"
           className="flex h-full flex-col items-start justify-center gap-[clamp(16px,4vw,32px)] px-gutter"
         >
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              aria-current={link.current ? "page" : undefined}
-              className={`font-display text-[clamp(40px,11vw,72px)] uppercase leading-[1.33282] transition-colors duration-300 hover:text-paper ${
-                link.current ? "text-paper" : "text-dim"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isCurrent = link.href !== "#" && pathname === link.href;
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                aria-current={isCurrent ? "page" : undefined}
+                className={`font-display text-[clamp(40px,11vw,72px)] uppercase leading-[1.33282] transition-colors duration-300 hover:text-paper ${
+                  isCurrent ? "text-paper" : "text-dim"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </div>

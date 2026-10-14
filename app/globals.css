@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 /*
- * Design tokens extracted from Figma node 127:4045 ("Works", 1728px frame).
+ * Design tokens extracted from Figma (landing node 127:4045, company node 127:4661).
  * Fluid clamps scale proportionally below 1728px and hit the exact Figma
- * value at >=1728px. Sources: .vscode/figma-inventory.txt
+ * value at >=1728px. Sources: .vscode/figma-inventory.txt, .vscode/figma-company-inventory.txt
  */
 @theme {
   /* Type families (variables provided by next/font in app/layout.tsx) */
@@ -15,18 +15,26 @@
   --color-paper: #ffffff;
   --color-dim: #333333;
   --color-muted: #4e4e4e;
+  --color-ash: #9d9d9d;
 
-  /*
-   * Type scale — exact Figma sizes at 1728px:
-   * hero 160.376px / title 36.381px / label 23.791px, line-height 133.28%
-   */
-  /* min 44px keeps the longest phrase word ("perspectives," = 13 chars) inside narrow phones */
+  /* Type scale — exact Figma sizes at 1728px; line-height 133.28% unless noted */
   --text-hero: clamp(44px, 9.281vw, 160.376px);
   --text-hero--line-height: 1.33282;
   --text-title: clamp(24px, 2.1054vw, 36.381px);
   --text-title--line-height: 1.33282;
   --text-label: clamp(16px, 1.3768vw, 23.791px);
   --text-label--line-height: 1.33282;
+
+  /* Company page */
+  --text-section: clamp(48px, 5.76vw, 99.54px);
+  --text-section--line-height: 1.03;
+  --text-section--letter-spacing: -0.06em;
+  --text-service: clamp(28px, 2.451vw, 42.36px);
+  --text-service--line-height: 1.33282;
+  --text-story: clamp(18px, 1.447vw, 25px);
+  --text-story--line-height: 1.33282;
+  --text-body: clamp(20px, 1.676vw, 28.963px);
+  --text-body--line-height: 1.33282;
 
   /* Spacing — exact Figma values at 1728px */
   --spacing-gutter: clamp(20px, 3.4722vw, 60px); /* page gutter */

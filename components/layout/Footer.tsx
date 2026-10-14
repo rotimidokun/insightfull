@@ -9,7 +9,7 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="mt-[clamp(80px,18.3449vw,317px)] pb-[clamp(32px,4.5718vw,79px)]">
+    <footer className="pb-[clamp(32px,4.5718vw,79px)]">
       {/* Figma footer gutters: 64 left / 42 right */}
       <Container className="pl-[clamp(20px,3.7vw,64px)] pr-[clamp(20px,2.4306vw,42px)]">
         <ul className="flex flex-wrap items-center gap-[clamp(16px,2.4306vw,42px)]">

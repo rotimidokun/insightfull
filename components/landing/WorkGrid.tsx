@@ -6,7 +6,7 @@ export function WorkGrid() {
   return (
     <section
       aria-label="Selected work"
-      className="mt-[clamp(24px,2.4884vw,43px)]"
+      className="mt-[clamp(24px,2.4884vw,43px)] mb-[clamp(80px,18.3449vw,317px)]"
     >
       {/* Figma grid: 2 columns of 783px, gap 32x67, gutters 60 left / 70 right */}
       <Container className="pl-gutter pr-[clamp(20px,4.0509vw,70px)]">

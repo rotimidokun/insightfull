@@ -1,15 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { NavLinks } from "@/components/layout/NavLinks";
 import { MobileNav } from "@/components/layout/MobileNav";
-import { navLinks } from "@/lib/nav";
 
 export function Header() {
   // pt 30px (was Figma's 62px) — client requested tighter space above logo/menu
   return (
     <header className="pt-[clamp(18px,1.7361vw,30px)]">
-      {/* Figma 127:4045: logo at x60, nav frame right edge at 58px gutter */}
       <Container className="flex items-center justify-between pl-gutter pr-[clamp(20px,3.3565vw,58px)]">
-        <a href="#" aria-label="Insightfull home" className="shrink-0">
+        <Link href="/" aria-label="Insightfull home" className="shrink-0">
           <Image
             src="/images/logo-insightfull.svg"
             alt=""
@@ -18,28 +18,9 @@ export function Header() {
             unoptimized
             className="h-[clamp(28px,2.8935vw,50px)] w-auto"
           />
-        </a>
-
-        <nav
-          aria-label="Main"
-          className="hidden items-center gap-nav-gap py-[clamp(16px,2.2vw,38px)] lg:flex"
-        >
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              aria-current={link.current ? "page" : undefined}
-              style={{ width: link.width }}
-              className={`block text-center font-display text-title uppercase transition-colors duration-300 hover:text-paper ${
-                link.current ? "text-paper" : "text-dim"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <MobileNav links={navLinks} />
+        </Link>
+        <NavLinks />
+        <MobileNav />
       </Container>
     </header>
   );

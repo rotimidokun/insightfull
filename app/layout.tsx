@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Amaranth, Inter } from "next/font/google";
 import "./globals.css";
 
-/* Exact families/weights from Figma: Amaranth Bold 700, Inter Bold 700 */
+/* Exact families/weights from Figma: Amaranth Bold 700; Inter Regular 400 / Medium 500 / Bold 700 */
 const amaranth = Amaranth({
   weight: "700",
   subsets: ["latin"],
@@ -11,7 +11,7 @@ const amaranth = Amaranth({
 });
 
 const inter = Inter({
-  weight: "700",
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
