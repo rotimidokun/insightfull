@@ -20,7 +20,8 @@
    * Type scale — exact Figma sizes at 1728px:
    * hero 160.376px / title 36.381px / label 23.791px, line-height 133.28%
    */
-  --text-hero: clamp(56px, 9.281vw, 160.376px);
+  /* min 44px keeps the longest phrase word ("perspectives," = 13 chars) inside narrow phones */
+  --text-hero: clamp(44px, 9.281vw, 160.376px);
   --text-hero--line-height: 1.33282;
   --text-title: clamp(24px, 2.1054vw, 36.381px);
   --text-title--line-height: 1.33282;

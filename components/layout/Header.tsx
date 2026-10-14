@@ -4,8 +4,9 @@ import { MobileNav } from "@/components/layout/MobileNav";
 import { navLinks } from "@/lib/nav";
 
 export function Header() {
+  // pt 30px (was Figma's 62px) — client requested tighter space above logo/menu
   return (
-    <header className="pt-[clamp(32px,3.5903vw,62px)]">
+    <header className="pt-[clamp(18px,1.7361vw,30px)]">
       {/* Figma 127:4045: logo at x60, nav frame right edge at 58px gutter */}
       <Container className="flex items-center justify-between pl-gutter pr-[clamp(20px,3.3565vw,58px)]">
         <a href="#" aria-label="Insightfull home" className="shrink-0">

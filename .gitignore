@@ -40,3 +40,4 @@ next-env.d.ts
 .vscode/figma-inventory.txt
 .vscode/render-*.png
 .vscode/svg-test.png
+.vscode/*.mp4
