@@ -10,8 +10,10 @@ const amaranth = Amaranth({
   display: "swap",
 });
 
+// Inter is a variable font — loaded as the variable (single query) so the build
+// doesn't fail with "next/font/google queries have exactly one entry". The
+// 400/500/700 weights used across the site come from the wght axis.
 const inter = Inter({
-  weight: ["400", "500", "700"],
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
