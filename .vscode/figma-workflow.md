@@ -6,6 +6,32 @@ The key to pixel-perfect implementation in one shot is collecting ALL design dat
 
 ---
 
+## The Golden Rule: Every Page MUST Match Figma — Do Not Just Glimpse
+
+After building a page, do a **rigorous, element-by-element comparison** against the
+Figma reference — NOT a quick glance. "It looks close" is a fail; "every element
+matches" is the pass. Before calling a page done, verify each of these against BOTH
+the node data and the reference screenshot (captured at the Figma frame's width):
+
+1. **Every section/element is present** — cross-check the design against what you
+   built: nothing missing, nothing extra. If the data doesn't make clear what fills a
+   region, confirm it against the screenshot/asset list before assuming.
+2. **Elements keep their intended size** — a fixed-size container keeps its exact
+   bounds; embedded content (image/video/embed) is fitted INSIDE it (cover/contain),
+   never growing the container.
+3. **Exact values** — colors (hex), font family/weight/size/line-height/letter-spacing,
+   spacing, padding, gaps, borders/radius. No "close enough."
+4. **Exact text** — `characters` verbatim, plus the correct transform (uppercase /
+   capitalize / none) as seen in the screenshot.
+5. **Layout geometry** — element positions, column widths, alignment, and the exact
+   gaps between sections.
+
+Screenshot YOUR build at the Figma frame's width and compare it side-by-side with the
+Figma export, region by region (header → each section → footer). Any region that does
+not match is a defect — fix it before handoff.
+
+---
+
 ## Step 0: Take a Screenshot (MANDATORY)
 
 When provided with a Figma link or node ID, **always take a screenshot first** using `mcp_figma-bridge_save_screenshots` (or the HTTP RPC fallback in Step 0.5). This serves as your visual reference to compare against throughout implementation.
@@ -271,6 +297,9 @@ console.log(JSON.stringify(find(data, 'TARGET_NAME'), null, 2));
 - ❌ **Paraphrasing figma text** — if figma says "Are you sure about this?" don't write "Are you sure you want to deactivate this rule?". Designers chose those words.
 - ❌ Coding before gathering all data — leads to multiple correction rounds
 - ❌ Using `head`/`grep`/`tail` on Windows cmd.exe — they're Unix tools, not available by default
+- ❌ Declaring a page "matches" after a glance — compare your build to the Figma export element-by-element at the same width, region by region
+- ❌ Letting embedded content (image/video) resize a fixed container — fit the content inside; keep the container's exact bounds
+- ❌ Assuming a region with no data means "no content" — confirm against the design what belongs there before leaving it blank
 
 ---
 
