@@ -1,6 +1,19 @@
+export type GalleryTile = {
+  image: string;
+  /** Figma tile width (for aspect + 2-col column ratios). */
+  w: number;
+  h: number;
+  alt: string;
+};
+
+export type GalleryRow = {
+  /** One tile = full-width; two tiles = a 2-column row. */
+  tiles: GalleryTile[];
+};
+
 export type Work = {
   slug: string;
-  /** Figma `characters` value — displayed uppercase via CSS, text kept exact. */
+  /** Figma `characters` value — displayed uppercase via CSS. */
   title: string;
   /** Figma `characters` value — displayed as typed. */
   category: string;
@@ -11,9 +24,13 @@ export type Work = {
    * card in Figma: white Frame 102 with the image placed at 85.44% width).
    */
   contain?: boolean;
+  /** Project-detail case-study gallery (row by row). */
+  gallery?: GalleryRow[];
+  /** Slugs shown in the "other projects" section of the project page. */
+  otherSlugs?: string[];
 };
 
-/** Grid order matches Figma frames 104-109 (row-major, 2 columns). */
+/** Grid fill order (row-major): label, then these five cards. */
 export const works: Work[] = [
   {
     slug: "karanta-kids",
@@ -21,6 +38,113 @@ export const works: Work[] = [
     category: "Branding,Web design",
     image: "/images/work-karanta-kids.png",
     alt: "Karanta Kids mobile app screens on an orange background",
+    otherSlugs: ["larue-projects", "baf-10th-anniversary"],
+    gallery: [
+      {
+        tiles: [
+          {
+            image: "/images/project-karanta-hero.png",
+            w: 1610,
+            h: 674,
+            alt: "Karanta Kids website shown on a laptop",
+          },
+        ],
+      },
+      {
+        tiles: [
+          {
+            image: "/images/project-karanta-logo.png",
+            w: 782,
+            h: 674,
+            alt: "Karanta Kids logo on an orange background",
+          },
+          {
+            image: "/images/project-karanta-iphone.png",
+            w: 808,
+            h: 674,
+            alt: "iPhone home screen with the Karanta Kids app",
+          },
+        ],
+      },
+      {
+        tiles: [
+          {
+            image: "/images/project-karanta-wall.png",
+            w: 1610,
+            h: 674,
+            alt: "Children drawing on a wall at a Karanta Kids event",
+          },
+        ],
+      },
+      {
+        tiles: [
+          {
+            image: "/images/project-karanta-cards.png",
+            w: 1608,
+            h: 674,
+            alt: "Karanta Kids Foundation social media cards",
+          },
+        ],
+      },
+      {
+        tiles: [
+          {
+            image: "/images/project-karanta-app.png",
+            w: 782,
+            h: 674,
+            alt: "Karanta Kids app screen on a phone",
+          },
+          {
+            image: "/images/project-karanta-badge.png",
+            w: 808,
+            h: 674,
+            alt: "Karanta Kids ID badge",
+          },
+        ],
+      },
+      {
+        tiles: [
+          {
+            image: "/images/project-karanta-phone.png",
+            w: 782,
+            h: 674,
+            alt: "Karanta Kids website on a phone in an orange pocket",
+          },
+          {
+            image: "/images/project-karanta-bag.png",
+            w: 808,
+            h: 674,
+            alt: "Karanta Kids orange drawstring bag",
+          },
+        ],
+      },
+      {
+        tiles: [
+          {
+            image: "/images/project-karanta-stage.png",
+            w: 1610,
+            h: 674,
+            alt: "Karanta Kids Foundation stage backdrop",
+          },
+        ],
+      },
+      {
+        tiles: [
+          {
+            image: "/images/project-karanta-poster.png",
+            w: 782,
+            h: 674,
+            alt: "Karanta Kids illustrated posters",
+          },
+          {
+            image: "/images/project-karanta-event.png",
+            w: 808,
+            h: 674,
+            alt: "Karanta Kids event space",
+          },
+        ],
+      },
+    ],
   },
   {
     slug: "larue-projects",

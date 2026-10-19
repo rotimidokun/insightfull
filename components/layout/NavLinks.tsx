@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navLinks } from "@/lib/nav";
+import { isNavActive, navLinks } from "@/lib/nav";
 
 export function NavLinks() {
   const pathname = usePathname();
@@ -13,7 +13,7 @@ export function NavLinks() {
       className="hidden items-center gap-nav-gap py-[clamp(16px,2.2vw,38px)] lg:flex"
     >
       {navLinks.map((link) => {
-        const isCurrent = link.href !== "#" && pathname === link.href;
+        const isCurrent = isNavActive(link, pathname);
         return (
           <Link
             key={link.label}

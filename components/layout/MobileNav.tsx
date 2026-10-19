@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { navLinks } from "@/lib/nav";
+import { isNavActive, navLinks } from "@/lib/nav";
 
 export function MobileNav() {
   const pathname = usePathname();
@@ -63,7 +63,7 @@ export function MobileNav() {
           className="flex h-full flex-col items-start justify-center gap-[clamp(16px,4vw,32px)] px-gutter"
         >
           {navLinks.map((link) => {
-            const isCurrent = link.href !== "#" && pathname === link.href;
+            const isCurrent = isNavActive(link, pathname);
             return (
               <Link
                 key={link.label}

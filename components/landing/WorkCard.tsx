@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Work } from "@/lib/works";
 
 export function WorkCard({
@@ -10,8 +11,7 @@ export function WorkCard({
 }) {
   return (
     <li>
-      {/* Placeholder link — case study routes to be wired later */}
-      <a href="#" className="group block">
+      <Link href={`/work/${work.slug}`} className="group block">
         <div className="relative aspect-[783/674] overflow-hidden bg-white">
           {work.contain ? (
             /* Oba Otudeko: screenshot centered on white canvas at 85.44% width */
@@ -48,7 +48,7 @@ export function WorkCard({
             {work.category}
           </p>
         </div>
-      </a>
+      </Link>
     </li>
   );
 }
