@@ -152,6 +152,84 @@ export const works: Work[] = [
     category: "Branding,Web design",
     image: "/images/work-larue-projects.png",
     alt: "Larue Projects blue geometric brand graphic",
+    // Figma 127:4306 shows Larue + BAF under "other projects" (including the
+    // current page — a template placeholder). "Other projects" excludes the
+    // current page, so Karanta stands in for the self-referential card.
+    otherSlugs: ["karanta-kids", "baf-10th-anniversary"],
+    gallery: [
+      {
+        tiles: [
+          {
+            image: "/images/project-larue-logos.png",
+            w: 1610,
+            h: 674,
+            alt: "Larue Projects logo variations",
+          },
+        ],
+      },
+      {
+        tiles: [
+          {
+            image: "/images/project-larue-geo.png",
+            w: 782,
+            h: 674,
+            alt: "Larue Projects geometric brand pattern",
+          },
+          {
+            image: "/images/project-larue-arcs.png",
+            w: 808,
+            h: 674,
+            alt: "Larue Projects blue arc pattern",
+          },
+        ],
+      },
+      {
+        tiles: [
+          {
+            image: "/images/project-larue-slides.png",
+            w: 1610,
+            h: 674,
+            alt: "Larue Projects presentation slides",
+          },
+        ],
+      },
+      {
+        tiles: [
+          {
+            image: "/images/project-larue-signature.png",
+            w: 1608,
+            h: 674,
+            alt: "Larue Projects email signature and business card",
+          },
+        ],
+      },
+      {
+        tiles: [
+          {
+            image: "/images/project-larue-cards.png",
+            w: 782,
+            h: 674,
+            alt: "Larue Projects business card mockup",
+          },
+          {
+            image: "/images/project-larue-badge.png",
+            w: 808,
+            h: 674,
+            alt: "Larue Projects ID badge",
+          },
+        ],
+      },
+      {
+        tiles: [
+          {
+            image: "/images/project-larue-browser.png",
+            w: 1608,
+            h: 674,
+            alt: "Larue Projects website shown in a browser",
+          },
+        ],
+      },
+    ],
   },
   {
     slug: "oba-otudeko",
