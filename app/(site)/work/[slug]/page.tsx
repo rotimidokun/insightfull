@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { works, type Work } from "@/lib/works";
 import { ProjectHeader } from "@/components/project/ProjectHeader";
 import { ProjectGallery } from "@/components/project/ProjectGallery";
+import { EventHighlight } from "@/components/project/EventHighlight";
 import { OtherProjects } from "@/components/project/OtherProjects";
 
 // Opt out of the Next 16 "instant" shell for this route: `params` is read in the
@@ -22,7 +23,9 @@ export async function generateMetadata({
   const { slug } = await params;
   const work = works.find((w) => w.slug === slug);
   return {
-    title: work ? `${work.title} — Insightfull Creative` : "Insightfull Creative",
+    title: work
+      ? `${work.projectTitle ?? work.title} — Insightfull Creative`
+      : "Insightfull Creative",
   };
 }
 
@@ -43,9 +46,10 @@ export default async function ProjectPage({
 
   return (
     <>
-      <ProjectHeader title={work.title} />
+      <ProjectHeader title={work.projectTitle ?? work.title} />
       {work.gallery ? <ProjectGallery gallery={work.gallery} /> : null}
-      <OtherProjects others={others} />
+      {work.eventHighlight ? <EventHighlight /> : null}
+      {others.length > 0 ? <OtherProjects others={others} /> : null}
     </>
   );
 }
