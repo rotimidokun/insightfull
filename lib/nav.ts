@@ -35,8 +35,8 @@ export const navLinks: NavLink[] = [
   },
   {
     label: "contact",
-    href: "#",
+    href: "/contact",
     width: "clamp(92px, 8.9699vw, 155px)",
-    activeMatch: [],
+    activeMatch: ["/contact"],
   },
 ];
